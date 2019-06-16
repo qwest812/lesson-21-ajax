@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Promise.all ждет выполнения всех обещаний (или первого метода reject()).
+<script>
+    var p1 = Promise.resolve(3);
+    var p2 = 1337;
+    var p3 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, "foo");
+    });
+
+    Promise.all([p1, p2, p3]).then(values => {
+        console.log(values);
+    });
+
+    //Выведет:
+    // [3, 1337, "foo"]
+</script>
+</body>
+</html>

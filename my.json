@@ -1,0 +1,14 @@
+[
+  {
+    "name":"Iaroslav",
+    "age" :27,
+    "sex": "m",
+    "city": "Kyiv"
+  },
+  {
+    "name":"Katia",
+    "age" :30,
+    "sex": "f",
+    "city": "Odessa"
+  }
+]

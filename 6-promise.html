@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Promise – это специальный объект, который содержит своё состояние. Вначале pending («ожидание»),
+затем – одно из: fulfilled («выполнено успешно») или rejected («выполнено с ошибкой»).
+
+onFulfilled – срабатывают, когда promise в состоянии «выполнен успешно».
+onRejected – срабатывают, когда promise в состоянии «выполнен с ошибкой».
+<button id="btn">Создать Promise!</button>
+<div id="log"></div>
+<script>
+// let asyncSum=function (a,b) {
+//     return new Promise(function (resolve, reject) {
+//         setTimeout(function () {
+//             if (typeof (a)==="number" && typeof (b)==="number"){
+//             resolve(a+b);
+//             }else {
+//                 reject("Arguments must be numbers");
+//             }
+//         }, 2000)
+//     })
+// };
+// asyncSum(1,"gg").then(function (result) {
+//     console.log(result);
+// }).catch(function (errorMessage) {
+//     console.log(errorMessage);
+// });
+
+
+let asyncSum=function (a,b) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            if (typeof (a)==="number" && typeof (b)==="number"){
+                if(a>5){
+                    resolve("good");
+                }
+                resolve(a+b);
+            }else {
+                reject("Arguments must be numbers");
+            }
+        }, 2000)
+    })
+};
+asyncSum(6,6).then(function (result) {
+    console.log(result);
+}).catch(function (errorMessage) {
+    console.log(errorMessage);
+});
+
+
+
+</script>
+</body>
+</html>

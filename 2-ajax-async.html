@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Get" onclick="getData()">
+<script>
+
+    var test = [
+        {'firstName' : 'test1', 'secondName': 'test3'},
+        {'firstName' : 'test2', 'secondName': 'test4'}
+    ];
+
+
+    function getField(firstName, secondName) {
+
+
+
+        var output = [];
+        for (var i=0; i < firstName.length ; ++i){
+
+            output.push(firstName[i][secondName]);
+        }
+        return output;
+    }
+
+
+
+
+
+    console.log(getField(test, 'firstName' ));
+    console.log(getField(test, 'secondName' ));
+</script>
+</body>
+</html>

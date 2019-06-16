@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--url – URL, на который сделать запрос,-->
+<!--options – необязательный объект с настройками запроса.-->
+<!--Свойства options:-->
+<!---->
+<!--method – метод запроса,-->
+<!--headers – заголовки запроса (объект),-->
+<!--body – тело запроса: FormData, Blob, строка и т.п.-->
+<!--mode – одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос.-->
+<!--same-corse - если сделаетет запрос к другому источнику, удет ошибка-->
+<!--no-cors - запросы только простыми методами HEAD, GETили POST,-->
+<!--cors -  Позволяет запросам из разных источников, например, для доступа к различным API-->
+<!--navigate - Запрос на навигацию создается только при навигации между документами.-->
+<!--credentials – одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом.-->
+<!--cache – одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос.-->
+<!--redirect – можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки.-->
+<script>
+    var myHeaders = new Headers();
+    myHeaders.append( "Content-Type", "application/json");
+    console.log(myHeaders.get('Content-Type'));
+    var myInit = { method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default' };
+
+    fetch('my.json', myInit).then(function(response) {
+        console.log(response);
+
+        // return response.arrayBuffer();
+        // return response.json();
+        // return response.blob();
+        return response.formData();
+        // return response.text();
+    }).then(function(result) {
+        console.log(result);
+        // var objectURL = URL.createObjectURL(myBlob);
+        // myImage.src = objectURL;
+    }).catch(function (rejected) {
+        console.log(rejected);
+    });
+</script>
+<!--response.arrayBuffer()-->
+<!--response.blob()-->
+<!--response.formData()-->
+<!--response.json()-->
+<!--response.text()-->
+
+</body>
+</html>
